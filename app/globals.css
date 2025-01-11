@@ -11,26 +11,26 @@
 @layer base {
   :root {
     --background: 183 0% 95%;
-    --foreground: 183 0% 10%;
+    --foreground: 183 0% 20%;
     --card: 183 0% 90%;
     --card-foreground: 183 0% 15%;
     --popover: 183 0% 95%;
     --popover-foreground: 183 95% 10%;
     --primary: 183 100% 35.5%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 183 10% 70%;
+    --secondary: 183 10% 89%;
     --secondary-foreground: 0 0% 0%;
-    --muted: 145 10% 85%;
+    --muted: 145 10% 89%;
     --muted-foreground: 183 0% 40%;
-    --accent: 145 10% 80%;
+    --accent: 145 10% 89%;
     --accent-foreground: 183 0% 15%;
-    --destructive: 0 50% 43%;
+    --destructive: 0 50% 50%;
     --destructive-foreground: 183 0% 90%;
-    --border: 183 20% 50%;
-    --input: 183 20% 43%;
+    --border: 183 20% 82%;
+    --input: 183 20% 50%;
     --ring: 183 100% 35.5%;
     --radius: 0.75rem;
-  }
+   }
   .dark {
     --background: 183 10% 10%;
     --foreground: 183 0% 90%;
@@ -43,16 +43,16 @@
     --secondary: 183 10% 20%;
     --secondary-foreground: 0 0% 100%;
     --muted: 145 10% 25%;
-    --muted-foreground: 183 0% 60%;
+    --muted-foreground: 183 0% 65%;
     --accent: 145 10% 25%;
     --accent-foreground: 183 0% 90%;
-    --destructive: 0 50% 43%;
+    --destructive: 0 50% 50%;
     --destructive-foreground: 183 0% 90%;
-    --border: 183 20% 43%;
-    --input: 183 20% 43%;
+    --border: 183 20% 50%;
+    --input: 183 20% 50%;
     --ring: 183 100% 35.5%;
     --radius: 0.75rem;
-  }
+   }
 }
 
 @layer base {
@@ -62,4 +62,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+body,
+html {
+  @apply w-full h-screen;
 }

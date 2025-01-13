@@ -17,7 +17,7 @@ model Tasks {
   id String @id @default(uuid())
   title String
   description String?
-  period Period
+  period Period @default(MORNING)
   status Status @default(NOT_STARTED)
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt

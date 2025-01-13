@@ -1,5 +1,5 @@
 "use client";
-import { PlusIcon } from "lucide-react";
+import { LoaderCircleIcon, PlusIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   Dialog,
@@ -35,6 +35,8 @@ import { Period } from "@prisma/client";
 import { PERIOD_TYPE_OPTIONS } from "../_constants/tasks";
 import { useState } from "react";
 import { taskFormSchema, TaskFormSchema } from "../_actions/create-task/schema";
+import { createTask } from "../_actions/create-task";
+import { useToast } from "../_hooks/use-toast";
 
 const AddTaskButton = () => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
@@ -45,14 +47,28 @@ const AddTaskButton = () => {
     defaultValues: {
       title: "",
       description: "",
-      time: "MORNING",
+      period: "MORNING",
     },
   });
 
-  const onSubmit = (data: TaskFormSchema) => {
-    console.log(data);
-    setDialogIsOpen(false);
+  const onSubmit = async (data: TaskFormSchema) => {
+    try {
+      toast({
+        description: "Tarefa criada com sucesso!",
+      });
+      await createTask(data);
+      setDialogIsOpen(false);
+    } catch (error) {
+      console.log(error);
+      toast({
+        variant: "destructive",
+        description: "Ocorreu um erro ao criar tarefa!",
+      });
+    }
   };
+
+  const isSubmiting = form.formState.isSubmitting;
+  const { toast } = useToast();
 
   return (
     <Dialog open={dialogIsOpen} onOpenChange={setDialogIsOpen}>
@@ -86,7 +102,7 @@ const AddTaskButton = () => {
 
             <FormField
               control={form.control}
-              name="time"
+              name="period"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Horário</FormLabel>
@@ -132,7 +148,12 @@ const AddTaskButton = () => {
                   Cancelar
                 </Button>
               </DialogClose>
-              <Button type="submit">Adicionar</Button>
+              <Button disabled={isSubmiting} type="submit">
+                {isSubmiting && (
+                  <LoaderCircleIcon className="animate-spin" size={16} />
+                )}
+                Adicionar
+              </Button>
             </DialogFooter>
           </form>
         </Form>

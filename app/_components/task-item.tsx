@@ -4,7 +4,7 @@ import { HiOutlineArrowTopRightOnSquare } from "react-icons/hi2";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { CheckIcon, LoaderCircleIcon, TrashIcon } from "lucide-react";
-import { updateTask } from "../_actions/create-task";
+import { updateTask } from "../_actions/tasks";
 
 interface TaskItemProps {
   title: string;

@@ -34,8 +34,8 @@ import {
 import { Period } from "@prisma/client";
 import { PERIOD_TYPE_OPTIONS } from "../_constants/tasks";
 import { useState } from "react";
-import { taskFormSchema, TaskFormSchema } from "../_actions/create-task/schema";
-import { createTask } from "../_actions/create-task";
+import { taskFormSchema, TaskFormSchema } from "../_actions/tasks/schema";
+import { createTask } from "../_actions/tasks";
 import { useToast } from "../_hooks/use-toast";
 
 const AddTaskButton = () => {

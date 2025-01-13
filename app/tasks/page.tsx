@@ -20,7 +20,9 @@ const Tasks = async () => {
         <SunIcon />
       </TaskSeparator>
       {morningTasks.map((task) => (
-        <TaskItem status={task.status}>{task.title}</TaskItem>
+        <TaskItem key={task.id} status={task.status}>
+          {task.title}
+        </TaskItem>
       ))}
 
       <TaskSeparator text="Tarde">
@@ -28,14 +30,18 @@ const Tasks = async () => {
       </TaskSeparator>
 
       {afternoonTasks.map((task) => (
-        <TaskItem status={task.status}>{task.title}</TaskItem>
+        <TaskItem key={task.id} status={task.status}>
+          {task.title}
+        </TaskItem>
       ))}
 
       <TaskSeparator text="Noite">
         <MoonIcon />
       </TaskSeparator>
       {nightTasks.map((task) => (
-        <TaskItem status={task.status}>{task.title}</TaskItem>
+        <TaskItem key={task.id} status={task.status}>
+          {task.title}
+        </TaskItem>
       ))}
     </div>
   );

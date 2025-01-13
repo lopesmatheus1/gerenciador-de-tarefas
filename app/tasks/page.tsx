@@ -16,32 +16,34 @@ const Tasks = async () => {
     <div className="my-16 mx-8 w-full">
       <Header text="Minhas Tarefas" title="Minhas Tarefas" />
 
-      <TaskSeparator text="Manhã">
-        <SunIcon />
-      </TaskSeparator>
+      <TaskSeparator text="Manhã" icon={<SunIcon />} />
       {morningTasks.map((task) => (
-        <TaskItem key={task.id} status={task.status}>
-          {task.title}
-        </TaskItem>
+        <TaskItem
+          key={task.id}
+          id={task.id}
+          status={task.status}
+          title={task.title}
+        />
       ))}
 
-      <TaskSeparator text="Tarde">
-        <CloudSunIcon />
-      </TaskSeparator>
-
+      <TaskSeparator text="Tarde" icon={<CloudSunIcon />} />
       {afternoonTasks.map((task) => (
-        <TaskItem key={task.id} status={task.status}>
-          {task.title}
-        </TaskItem>
+        <TaskItem
+          id={task.id}
+          key={task.id}
+          status={task.status}
+          title={task.title}
+        />
       ))}
 
-      <TaskSeparator text="Noite">
-        <MoonIcon />
-      </TaskSeparator>
+      <TaskSeparator text="Noite" icon={<MoonIcon />} />
       {nightTasks.map((task) => (
-        <TaskItem key={task.id} status={task.status}>
-          {task.title}
-        </TaskItem>
+        <TaskItem
+          id={task.id}
+          key={task.id}
+          status={task.status}
+          title={task.title}
+        />
       ))}
     </div>
   );

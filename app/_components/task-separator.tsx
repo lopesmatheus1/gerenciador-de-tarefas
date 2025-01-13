@@ -1,12 +1,12 @@
 interface TaskSeparatorProps {
-  children: React.ReactNode;
+  icon: React.ReactNode;
   text: string;
 }
 
-const TaskSeparator = ({ children, text }: TaskSeparatorProps) => {
+const TaskSeparator = ({ icon, text }: TaskSeparatorProps) => {
   return (
     <div className="flex w-full items-center justify-start gap-2 text-foreground/60 py-3  ">
-      {children}
+      {icon}
       <p className="font-semibold"> {text}</p>
     </div>
   );

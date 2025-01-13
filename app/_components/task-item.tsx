@@ -4,7 +4,7 @@ import { HiOutlineArrowTopRightOnSquare } from "react-icons/hi2";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { CheckIcon, LoaderCircleIcon, TrashIcon } from "lucide-react";
-import { updateTask } from "../_actions/tasks";
+import { deleteTask, updateTask } from "../_actions/tasks";
 
 interface TaskItemProps {
   title: string;
@@ -74,6 +74,7 @@ const TaskItem = ({ title, status, id }: TaskItemProps) => {
         <Button
           className={`w-8 h-8 !bg-opacity-0 hover:bg-transparent hover:text-inherit`}
           variant={"ghost"}
+          onClick={async () => deleteTask(id)}
         >
           <TrashIcon size={18} />
         </Button>

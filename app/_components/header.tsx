@@ -1,6 +1,5 @@
-import { TrashIcon, PlusIcon } from "lucide-react";
-import { Button } from "./ui/button";
 import AddTaskButton from "./add-task-button";
+import DeleteTasksButton from "./delete-tasks-button";
 
 interface HeaderProps {
   title: string;
@@ -16,12 +15,8 @@ const Header = ({ text, title }: HeaderProps) => {
       </div>
 
       <div className="flex self-end gap-3 ">
-        <Button className="py-3.5 rounded-sm" size={"sm"} variant={"ghost"}>
-          Limpar Tarefas
-          <TrashIcon size={14} />
-        </Button>
-        
-        <AddTaskButton/>
+        <DeleteTasksButton />
+        <AddTaskButton />
       </div>
     </div>
   );

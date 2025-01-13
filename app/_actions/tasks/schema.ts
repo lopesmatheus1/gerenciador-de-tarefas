@@ -18,4 +18,6 @@ export const taskFormSchema = z.object({
   }),
 });
 
+export const taskIdSchema = z.string().uuid();
+
 export type TaskFormSchema = z.infer<typeof taskFormSchema>;

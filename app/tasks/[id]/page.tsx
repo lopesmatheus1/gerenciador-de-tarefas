@@ -29,7 +29,7 @@ const TaskPage = async ({ params: { id } }: { params: Params }) => {
         </div>
       </div>
 
-      <div className="">
+      <div>
         <EditTask
           defaultValues={{
             title: task?.title || "",

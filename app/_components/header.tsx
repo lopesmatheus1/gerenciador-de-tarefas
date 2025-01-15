@@ -1,5 +1,5 @@
-import AddTaskButton from "./add-task-button";
-import DeleteTasksButton from "./delete-tasks-button";
+import AddTaskButton from "../tasks/_components/add-task-button";
+import DeleteTasksButton from "../tasks/_components/delete-tasks-button";
 
 interface HeaderProps {
   title: string;

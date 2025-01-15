@@ -1,6 +1,6 @@
 "use client";
 import { LoaderCircleIcon, PlusIcon } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../../_components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "./ui/dialog";
+} from "../../_components/ui/dialog";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import {
@@ -20,21 +20,21 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "./ui/form";
-import { Textarea } from "./ui/textarea";
-import { Input } from "./ui/input";
+} from "../../_components/ui/form";
+import { Textarea } from "../../_components/ui/textarea";
+import { Input } from "../../_components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
-import { PERIOD_TYPE_OPTIONS } from "../_constants/tasks";
+} from "../../_components/ui/select";
+import { PERIOD_TYPE_OPTIONS } from "../../_constants/tasks";
 import { useState } from "react";
-import { taskFormSchema, TaskFormSchema } from "../_actions/tasks/schema";
-import { upsertTask } from "../_actions/tasks";
-import { useToast } from "../_hooks/use-toast";
+import { taskFormSchema, TaskFormSchema } from "../../_actions/tasks/schema";
+import { upsertTask } from "../../_actions/tasks";
+import { useToast } from "../../_hooks/use-toast";
 
 const AddTaskButton = () => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);

@@ -1,6 +1,6 @@
 "use client";
 import { TrashIcon } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../../_components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -10,9 +10,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "./ui/dialog";
-import { deleteAllTasks } from "../_actions/tasks";
-import { useToast } from "../_hooks/use-toast";
+} from "../../_components/ui/dialog";
+import { deleteAllTasks } from "../../_actions/tasks";
+import { useToast } from "../../_hooks/use-toast";
 import { useState } from "react";
 
 const DeleteTasksButton = () => {

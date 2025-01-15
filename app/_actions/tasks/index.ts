@@ -5,17 +5,23 @@ import { taskFormSchema, TaskFormSchema, taskIdSchema } from "./schema";
 import { revalidatePath } from "next/cache";
 import { $Enums } from "@prisma/client";
 
-export const createTask = async (data: TaskFormSchema) => {
+export const upsertTask = async (data: TaskFormSchema) => {
   taskFormSchema.parse(data);
 
-  await db.tasks.create({ data });
-  revalidatePath("/tasks");
+  await db.tasks.upsert({
+    where: { id: data.id ?? "" },
+    update: data,
+    create: data,
+  });
+
+  revalidatePath("tasks");
 };
 
 export const updateTask = async (taskId: string, taskStatus: $Enums.Status) => {
   if (!["NOT_STARTED", "IN_PROGRESS", "COMPLETED"].includes(taskStatus)) {
     throw new Error("Status inválido!");
   }
+
   await db.tasks.update({
     where: { id: taskId },
     data: { status: taskStatus },

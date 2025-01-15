@@ -25,7 +25,7 @@ const DeleteTaskByIdButton = ({ id }: DeleteTaskByIdButtonProps) => {
   const route = useRouter();
   const handleDeleteClick = async () => {
     try {
-      deleteTask(id);
+      await deleteTask(id);
       toast({ description: "Tarefa deletada com sucesso" });
       route.push("/tasks");
     } catch (error) {

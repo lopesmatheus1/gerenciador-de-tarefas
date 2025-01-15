@@ -11,7 +11,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import {
@@ -31,11 +30,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { Period } from "@prisma/client";
 import { PERIOD_TYPE_OPTIONS } from "../_constants/tasks";
 import { useState } from "react";
 import { taskFormSchema, TaskFormSchema } from "../_actions/tasks/schema";
-import { createTask } from "../_actions/tasks";
+import { upsertTask } from "../_actions/tasks";
 import { useToast } from "../_hooks/use-toast";
 
 const AddTaskButton = () => {
@@ -56,7 +54,7 @@ const AddTaskButton = () => {
       toast({
         description: "Tarefa criada com sucesso!",
       });
-      await createTask(data);
+      await upsertTask(data);
       setDialogIsOpen(false);
     } catch (error) {
       console.log(error);

@@ -1,5 +1,6 @@
 import { getTaskById } from "@/app/_data-access/get-tasks";
 import DeleteTaskByIdButton from "../_components/delete-button";
+import EditTask from "../_components/edit-task";
 
 interface Params {
   id: string;
@@ -9,7 +10,7 @@ const TaskPage = async ({ params: { id } }: { params: Params }) => {
   const task = await getTaskById(id);
 
   return (
-    <div className="my-16 mx-8 w-full">
+    <div className="my-16 mx-8 w-full flex-col">
       <div className="w-full flex justify-between mb-6">
         <div>
           <div className="flex items-center justify-center gap-1">
@@ -24,8 +25,19 @@ const TaskPage = async ({ params: { id } }: { params: Params }) => {
         </div>
 
         <div className="flex self-end gap-3 ">
-          <DeleteTaskByIdButton id={id}/>
+          <DeleteTaskByIdButton id={id} />
         </div>
+      </div>
+
+      <div className="">
+        <EditTask
+          defaultValues={{
+            title: task?.title || "",
+            period: task?.period || "MORNING",
+            description: task?.description || "",
+            id: task?.id,
+          }}
+        />
       </div>
     </div>
   );

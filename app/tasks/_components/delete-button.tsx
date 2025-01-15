@@ -41,7 +41,7 @@ const DeleteTaskByIdButton = ({ id }: DeleteTaskByIdButtonProps) => {
       <AlertDialogTrigger asChild>
         <Button
           variant={"destructive"}
-          className="py-3.5 rounded-sm"
+          className="rounded-sm py-3.5"
           size={"sm"}
         >
           <TrashIcon size={14} />

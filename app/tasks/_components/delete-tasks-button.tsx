@@ -17,6 +17,7 @@ import { useState } from "react";
 
 const DeleteTasksButton = () => {
   const { toast } = useToast();
+  const [dialogIsOpen, setDialogIsOpen] = useState(false);
 
   const handleDeleteClick = async () => {
     try {
@@ -24,6 +25,7 @@ const DeleteTasksButton = () => {
       toast({
         description: "Todas as tarefas foram deletadas com sucesso!",
       });
+      setDialogIsOpen(false);
     } catch (error) {
       toast({
         variant: "destructive",
@@ -33,9 +35,9 @@ const DeleteTasksButton = () => {
     }
   };
   return (
-    <Dialog>
+    <Dialog open={dialogIsOpen} onOpenChange={setDialogIsOpen}>
       <DialogTrigger asChild>
-        <Button className="py-3.5 rounded-sm" size={"sm"} variant={"ghost"}>
+        <Button className="rounded-sm py-3.5" size={"sm"} variant={"ghost"}>
           Limpar Tarefas
           <TrashIcon size={14} />
         </Button>
@@ -50,10 +52,10 @@ const DeleteTasksButton = () => {
         </DialogHeader>
 
         <DialogFooter>
-          <DialogClose>
+          <DialogClose asChild>
             <Button variant={"ghost"}>Cancelar</Button>
-            <Button onClick={handleDeleteClick}>Confirmar</Button>
           </DialogClose>
+          <Button onClick={handleDeleteClick}>Confirmar</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -1,10 +1,10 @@
 "use client";
 import { $Enums } from "@prisma/client";
 import { HiOutlineArrowTopRightOnSquare } from "react-icons/hi2";
-import { Button } from "./ui/button";
+import { Button } from "../../_components/ui/button";
 import Link from "next/link";
 import { CheckIcon, LoaderCircleIcon, TrashIcon } from "lucide-react";
-import { deleteTask, updateTask } from "../_actions/tasks";
+import { deleteTask, updateTask } from "../../_actions/tasks";
 
 interface TaskItemProps {
   title: string;
@@ -66,7 +66,7 @@ const TaskItem = ({ title, status, id }: TaskItemProps) => {
           variant={"ghost"}
           asChild
         >
-          <Link href={"/"}>
+          <Link href={`/tasks/${id}`}>
             <HiOutlineArrowTopRightOnSquare size={18} />
           </Link>
         </Button>

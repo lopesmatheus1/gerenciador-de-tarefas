@@ -1,8 +1,8 @@
 import { CloudSunIcon, MoonIcon, SunIcon } from "lucide-react";
 import { getTasks } from "../_data-access/get-tasks";
 import Header from "../_components/header";
-import TaskSeparator from "../_components/task-separator";
-import TaskItem from "../_components/task-item";
+import TaskSeparator from "./_components/task-separator";
+import TaskItem from "./_components/task-item";
 
 const Tasks = async () => {
   const tasks = await getTasks();

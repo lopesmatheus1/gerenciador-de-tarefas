@@ -15,6 +15,7 @@ export const upsertTask = async (data: TaskFormSchema) => {
   });
 
   revalidatePath("tasks");
+  revalidatePath("/");
 };
 
 export const updateTask = async (taskId: string, taskStatus: $Enums.Status) => {
@@ -29,6 +30,7 @@ export const updateTask = async (taskId: string, taskStatus: $Enums.Status) => {
 
   // Revalida o cache da página correspondente
   revalidatePath("/tasks");
+  revalidatePath("/");
 };
 
 export const deleteTask = async (taskId: string) => {
@@ -36,9 +38,11 @@ export const deleteTask = async (taskId: string) => {
 
   await db.tasks.delete({ where: { id: taskId } });
   revalidatePath("/tasks");
+  revalidatePath("/");
 };
 
 export const deleteAllTasks = async () => {
   await db.tasks.deleteMany();
   revalidatePath("/tasks");
+  revalidatePath("/");
 };

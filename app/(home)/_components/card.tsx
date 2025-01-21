@@ -1,5 +1,3 @@
-import { LayoutList } from "lucide-react";
-
 interface CardProps {
   icon: React.ReactNode;
   text: string;
